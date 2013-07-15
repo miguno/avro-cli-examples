@@ -60,3 +60,4 @@ The same command will work on both uncompressed and compressed data.
     $ java -jar ~/avro-tools-1.7.4.jar getschema twitter.avro > twitter.avsc
     $ java -jar ~/avro-tools-1.7.4.jar getschema twitter.snappy.avro > twitter.avsc
 
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/d1bb6d38b2ac73e2f46a6fc29a3a249e "githalytics.com")](http://githalytics.com/miguno/avro-cli-examples)
