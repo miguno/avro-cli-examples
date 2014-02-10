@@ -41,9 +41,6 @@ With Snappy compression:
 
     $ java -jar ~/avro-tools-1.7.6.jar fromjson --codec snappy --schema-file twitter.avsc twitter.json
 
-Note: If you run into `SnappyError: [FAILED_TO_LOAD_NATIVE_LIBRARY]` when trying to compress the data with Snappy make
-sure you use JDK 6 and not JDK 7.
-
 
 # Binary Avro to JSON
 
@@ -78,9 +75,6 @@ Output:
   "timestamp" : 1366154481
 }
 ```
-
-Note: If you run into `SnappyError: [FAILED_TO_LOAD_NATIVE_LIBRARY]` when trying to decompress the data with Snappy
-make sure you use JDK 6 and not JDK 7.
 
 
 # Retrieve Avro schema from binary Avro
