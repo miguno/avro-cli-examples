@@ -6,6 +6,19 @@ See my original article
 [Reading and Writing Avro Files From the Command Line](http://www.michael-noll.com/blog/2013/03/17/reading-and-writing-avro-files-from-the-command-line/#json-to-binary-avro)
 from April 2013 for more information about using Avro Tools.
 
+---
+
+Table of Contents
+
+* <a href="#prerequisites">Getting Avro Tools</a>
+* <a href="#json-to-avro">JSON to binary Avro</a>
+* <a href="#avro-to-json">Binary Avro to JSON</a>
+* <a href="#retrieve-avro-schema">Retrieve Avro schema from binary Avro</a>
+
+---
+
+
+<a name="prerequisites"></a>
 
 # Getting Avro Tools
 
@@ -31,6 +44,8 @@ Here is a direct link to [avro-tools-1.7.6.jar](http://www.us.apache.org/dist/av
   -- data records in pretty-printed JSON format
 
 
+<a name="json-to-avro"></a>
+
 # JSON to binary Avro
 
 Without compression:
@@ -41,6 +56,8 @@ With Snappy compression:
 
     $ java -jar ~/avro-tools-1.7.6.jar fromjson --codec snappy --schema-file twitter.avsc twitter.json
 
+
+<a name="avro-to-json"></a>
 
 # Binary Avro to JSON
 
@@ -76,6 +93,8 @@ Output:
 }
 ```
 
+
+<a name="retrieve-avro-schema"></a>
 
 # Retrieve Avro schema from binary Avro
 
