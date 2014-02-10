@@ -14,6 +14,7 @@ Table of Contents
 * <a href="#json-to-avro">JSON to binary Avro</a>
 * <a href="#avro-to-json">Binary Avro to JSON</a>
 * <a href="#retrieve-avro-schema">Retrieve Avro schema from binary Avro</a>
+* <a href="#related-tools">Related tools</a>
 
 ---
 
@@ -102,5 +103,18 @@ The same command will work on both uncompressed and compressed data.
 
     $ java -jar ~/avro-tools-1.7.6.jar getschema twitter.avro > twitter.avsc
     $ java -jar ~/avro-tools-1.7.6.jar getschema twitter.snappy.avro > twitter.avsc
+
+
+<a name="related-tools"></a>
+
+# Related tools
+
+You can also take a look at the CLI tools
+[avrocat](https://github.com/apache/avro/blob/trunk/lang/c/src/avrocat.c),
+[avromod](https://github.com/apache/avro/blob/trunk/lang/c/src/avromod.c), and
+[avropipe](https://github.com/apache/avro/blob/trunk/lang/c/src/avropipe.c) that are part of the Avro suite.
+You must build these tools yourself by following their respective
+[INSTALL](https://github.com/apache/avro/blob/trunk/lang/c/INSTALL) instructions.
+
 
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/d1bb6d38b2ac73e2f46a6fc29a3a249e "githalytics.com")](http://githalytics.com/miguno/avro-cli-examples)
