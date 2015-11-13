@@ -27,7 +27,7 @@ You can get a copy of the latest stable Avro Tools jar file from the
 [Avro Releases](http://avro.apache.org/releases.html#Download) page.  The actual file is in the `java` subdirectory
 of a given Avro release version.
 
-Here is a direct link to [avro-tools-1.7.6.jar](http://www.us.apache.org/dist/avro/avro-1.7.6/java/avro-tools-1.7.6.jar)
+Here is a direct link to [avro-tools-1.7.7.jar](http://www.us.apache.org/dist/avro/avro-1.7.7/java/avro-tools-1.7.7.jar)
 (12 MB) on the US Apache mirror site.
 
 
@@ -51,11 +51,11 @@ Here is a direct link to [avro-tools-1.7.6.jar](http://www.us.apache.org/dist/av
 
 Without compression:
 
-    $ java -jar ~/avro-tools-1.7.6.jar fromjson --schema-file twitter.avsc twitter.json > twitter.avro
+    $ java -jar ~/avro-tools-1.7.7.jar fromjson --schema-file twitter.avsc twitter.json > twitter.avro
 
 With Snappy compression:
 
-    $ java -jar ~/avro-tools-1.7.6.jar fromjson --codec snappy --schema-file twitter.avsc twitter.json
+    $ java -jar ~/avro-tools-1.7.7.jar fromjson --codec snappy --schema-file twitter.avsc twitter.json
 
 
 <a name="avro-to-json"></a>
@@ -64,8 +64,8 @@ With Snappy compression:
 
 The same command will work on both uncompressed and compressed data.
 
-    $ java -jar ~/avro-tools-1.7.6.jar tojson twitter.avro > twitter.json
-    $ java -jar ~/avro-tools-1.7.6.jar tojson twitter.snappy.avro > twitter.json
+    $ java -jar ~/avro-tools-1.7.7.jar tojson twitter.avro > twitter.json
+    $ java -jar ~/avro-tools-1.7.7.jar tojson twitter.snappy.avro > twitter.json
 
 Output:
 
@@ -76,8 +76,8 @@ Output:
 
 You can also pretty-print the JSON output with the  `-pretty` parameter:
 
-    $ java -jar ~/avro-tools-1.7.6.jar tojson -pretty twitter.avro > twitter.pretty.json
-    $ java -jar ~/avro-tools-1.7.6.jar tojson -pretty twitter.snappy.avro > twitter.pretty.json
+    $ java -jar ~/avro-tools-1.7.7.jar tojson -pretty twitter.avro > twitter.pretty.json
+    $ java -jar ~/avro-tools-1.7.7.jar tojson -pretty twitter.snappy.avro > twitter.pretty.json
 
 Output:
 
@@ -101,8 +101,8 @@ Output:
 
 The same command will work on both uncompressed and compressed data.
 
-    $ java -jar ~/avro-tools-1.7.6.jar getschema twitter.avro > twitter.avsc
-    $ java -jar ~/avro-tools-1.7.6.jar getschema twitter.snappy.avro > twitter.avsc
+    $ java -jar ~/avro-tools-1.7.7.jar getschema twitter.avro > twitter.avsc
+    $ java -jar ~/avro-tools-1.7.7.jar getschema twitter.snappy.avro > twitter.avsc
 
 
 <a name="related-tools"></a>
