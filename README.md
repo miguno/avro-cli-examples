@@ -1,10 +1,10 @@
 # avro-cli-examples
 
-Examples on how to use the command line tools in Avro Tools to read and write Avro files.
+Examples on how to use the command line tools in [Avro Tools](http://avro.apache.org/) to read and write Avro files.
 
 See my original article
 [Reading and Writing Avro Files From the Command Line](http://www.michael-noll.com/blog/2013/03/17/reading-and-writing-avro-files-from-the-command-line/#json-to-binary-avro)
-from April 2013 for more information about using Avro Tools.
+for more information on using Avro Tools.
 
 ---
 
@@ -27,22 +27,28 @@ You can get a copy of the latest stable Avro Tools jar file from the
 [Avro Releases](http://avro.apache.org/releases.html#Download) page.  The actual file is in the `java` subdirectory
 of a given Avro release version.
 
-Here is a direct link to [avro-tools-1.7.7.jar](http://www.us.apache.org/dist/avro/avro-1.7.7/java/avro-tools-1.7.7.jar)
-(12 MB) on the US Apache mirror site.
+Here is a direct link to [avro-tools-1.11.0.jar](https://dlcdn.apache.org/avro/avro-1.11.0/java/avro-tools-1.11.0.jar)
+(55 MB) on the US Apache mirror site.
+
+```shell
+# Download the Avro Tools jar to the current local directory.
+# The examples below assume the jar is in the current directory.
+$ curl -O -J https://dlcdn.apache.org/avro/avro-1.11.0/java/avro-tools-1.11.0.jar
+```
 
 
 # File overview
 
-* [twitter.avro](https://github.com/miguno/avro-cli-examples/blob/master/twitter.avro)
-  -- data records in uncompressed binary Avro format
-* [twitter.snappy.avro](https://github.com/miguno/avro-cli-examples/blob/master/twitter.snappy.avro)
-  -- data records in Snappy-compressed binary Avro format
-* [twitter.avsc](https://github.com/miguno/avro-cli-examples/blob/master/twitter.avsc)
-  -- Avro schema of the example data
-* [twitter.json](https://github.com/miguno/avro-cli-examples/blob/master/twitter.json)
-  -- data records in plain-text JSON format
-* [twitter.pretty.json](https://github.com/miguno/avro-cli-examples/blob/master/twitter.pretty.json)
-  -- data records in pretty-printed JSON format
+* [twitter.avro](twitter.avro)
+  — data records in uncompressed binary Avro format
+* [twitter.snappy.avro](twitter.snappy.avro)
+  — data records in Snappy-compressed binary Avro format
+* [twitter.avsc](twitter.avsc)
+  — Avro schema of the example data
+* [twitter.json](twitter.json)
+  — data records in plain-text JSON format
+* [twitter.pretty.json](twitter.pretty.json)
+  — data records in pretty-printed JSON format
 
 
 <a name="json-to-avro"></a>
@@ -51,23 +57,35 @@ Here is a direct link to [avro-tools-1.7.7.jar](http://www.us.apache.org/dist/av
 
 Without compression:
 
-    $ java -jar ~/avro-tools-1.7.7.jar fromjson --schema-file twitter.avsc twitter.json > twitter.avro
+```shell
+$ java -jar avro-tools-1.11.0.jar fromjson --schema-file twitter.avsc twitter.json > twitter.avro
+```
 
 With Snappy compression:
 
-    $ java -jar ~/avro-tools-1.7.7.jar fromjson --codec snappy --schema-file twitter.avsc twitter.json
+```shell
+$ java -jar avro-tools-1.11.0.jar fromjson --codec snappy --schema-file twitter.avsc twitter.json > twitter.snappy.avro
+```
 
 
 <a name="avro-to-json"></a>
 
 # Binary Avro to JSON
 
-The same command will work on both uncompressed and compressed data.
+The same command works on both uncompressed and compressed data.
 
-    $ java -jar ~/avro-tools-1.7.7.jar tojson twitter.avro > twitter.json
-    $ java -jar ~/avro-tools-1.7.7.jar tojson twitter.snappy.avro > twitter.json
+```shell
+$ java -jar avro-tools-1.11.0.jar tojson twitter.avro > twitter.json
+$ java -jar avro-tools-1.11.0.jar tojson twitter.snappy.avro > twitter.json
+```
 
-Output:
+Example:
+
+```shell
+$ java -jar avro-tools-1.11.0.jar tojson twitter.avro
+```
+
+returns
 
 ```json
 {"username":"miguno","tweet":"Rock: Nerf paper, scissors is fine.","timestamp": 1366150681 }
@@ -76,10 +94,16 @@ Output:
 
 You can also pretty-print the JSON output with the  `-pretty` parameter:
 
-    $ java -jar ~/avro-tools-1.7.7.jar tojson -pretty twitter.avro > twitter.pretty.json
-    $ java -jar ~/avro-tools-1.7.7.jar tojson -pretty twitter.snappy.avro > twitter.pretty.json
+    $ java -jar avro-tools-1.11.0.jar tojson -pretty twitter.avro > twitter.pretty.json
+    $ java -jar avro-tools-1.11.0.jar tojson -pretty twitter.snappy.avro > twitter.pretty.json
 
-Output:
+Example:
+
+```shell
+$ java -jar avro-tools-1.11.0.jar tojson -pretty twitter.avro
+```
+
+returns
 
 ```json
 {
@@ -99,11 +123,37 @@ Output:
 
 # Retrieve Avro schema from binary Avro
 
-The same command will work on both uncompressed and compressed data.
+The same command works on both uncompressed and compressed data.
 
-    $ java -jar ~/avro-tools-1.7.7.jar getschema twitter.avro > twitter.avsc
-    $ java -jar ~/avro-tools-1.7.7.jar getschema twitter.snappy.avro > twitter.avsc
+```shell
+$ java -jar avro-tools-1.11.0.jar getschema twitter.avro > twitter.avsc
+$ java -jar avro-tools-1.11.0.jar getschema twitter.snappy.avro > twitter.avsc
+```
 
+Example:
+
+```shell
+$ java -jar avro-tools-1.11.0.jar getschema twitter.avro
+{
+  "type" : "record",
+  "name" : "twitter_schema",
+  "namespace" : "com.miguno.avro",
+  "fields" : [ {
+    "name" : "username",
+    "type" : "string",
+    "doc" : "Name of the user account on Twitter.com"
+  }, {
+    "name" : "tweet",
+    "type" : "string",
+    "doc" : "The content of the user's Twitter message"
+  }, {
+    "name" : "timestamp",
+    "type" : "long",
+    "doc" : "Unix epoch time in seconds"
+  } ],
+  "doc:" : "A basic schema for storing Twitter messages"
+}
+```
 
 <a name="related-tools"></a>
 
