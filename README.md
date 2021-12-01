@@ -115,6 +115,3 @@ You can also take a look at the CLI tools
 [avropipe](https://github.com/apache/avro/blob/trunk/lang/c/src/avropipe.c) that are part of the Avro suite.
 You must build these tools yourself by following their respective
 [INSTALL](https://github.com/apache/avro/blob/trunk/lang/c/INSTALL) instructions.
-
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/d1bb6d38b2ac73e2f46a6fc29a3a249e "githalytics.com")](http://githalytics.com/miguno/avro-cli-examples)
