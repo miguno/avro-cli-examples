@@ -10,46 +10,45 @@ for more information on using Avro Tools.
 
 Table of Contents
 
-* <a href="#prerequisites">Getting Avro Tools</a>
-* <a href="#json-to-avro">JSON to binary Avro</a>
-* <a href="#avro-to-json">Binary Avro to JSON</a>
-* <a href="#retrieve-avro-schema">Retrieve Avro schema from binary Avro</a>
-* <a href="#related-tools">Related tools</a>
+- <a href="#prerequisites">Getting Avro Tools</a>
+- <a href="#json-to-avro">JSON to binary Avro</a>
+- <a href="#avro-to-json">Binary Avro to JSON</a>
+- <a href="#retrieve-avro-schema">Retrieve Avro schema from binary Avro</a>
+- <a href="#related-tools">Related tools</a>
 
 ---
-
 
 <a name="prerequisites"></a>
 
 # Getting Avro Tools
 
 You can get a copy of the latest stable Avro Tools jar file from the
-[Avro Releases](http://avro.apache.org/releases.html#Download) page.  The actual file is in the `java` subdirectory
-of a given Avro release version.
+[Avro Releases](https://avro.apache.org/project/download/) page.
+The actual `avro-tools-*.jar` file is in the `java/` subdirectory of a given
+Avro release version.
 
-Here is a direct link to [avro-tools-1.11.0.jar](https://dlcdn.apache.org/avro/avro-1.11.0/java/avro-tools-1.11.0.jar)
-(55 MB) on the US Apache mirror site.
+Here is a direct link to
+[avro-tools-1.11.3.jar](https://dlcdn.apache.org/avro/avro-1.11.3/java/avro-tools-1.11.3.jar)
+(53 MB).
 
 ```shell
 # Download the Avro Tools jar to the current local directory.
 # The examples below assume the jar is in the current directory.
-$ curl -O -J https://dlcdn.apache.org/avro/avro-1.11.0/java/avro-tools-1.11.0.jar
+$ curl -O -J https://dlcdn.apache.org/avro/avro-1.11.3/java/avro-tools-1.11.3.jar
 ```
-
 
 # File overview
 
-* [twitter.avro](twitter.avro)
+- [twitter.avro](twitter.avro)
   — data records in uncompressed binary Avro format
-* [twitter.snappy.avro](twitter.snappy.avro)
+- [twitter.snappy.avro](twitter.snappy.avro)
   — data records in Snappy-compressed binary Avro format
-* [twitter.avsc](twitter.avsc)
+- [twitter.avsc](twitter.avsc)
   — Avro schema of the example data
-* [twitter.json](twitter.json)
+- [twitter.json](twitter.json)
   — data records in plain-text JSON format
-* [twitter.pretty.json](twitter.pretty.json)
+- [twitter.pretty.json](twitter.pretty.json)
   — data records in pretty-printed JSON format
-
 
 <a name="json-to-avro"></a>
 
@@ -58,15 +57,14 @@ $ curl -O -J https://dlcdn.apache.org/avro/avro-1.11.0/java/avro-tools-1.11.0.ja
 Without compression:
 
 ```shell
-$ java -jar avro-tools-1.11.0.jar fromjson --schema-file twitter.avsc twitter.json > twitter.avro
+$ java -jar avro-tools-1.11.3.jar fromjson --schema-file twitter.avsc twitter.json > twitter.avro
 ```
 
 With Snappy compression:
 
 ```shell
-$ java -jar avro-tools-1.11.0.jar fromjson --codec snappy --schema-file twitter.avsc twitter.json > twitter.snappy.avro
+$ java -jar avro-tools-1.11.3.jar fromjson --codec snappy --schema-file twitter.avsc twitter.json > twitter.snappy.avro
 ```
-
 
 <a name="avro-to-json"></a>
 
@@ -75,14 +73,14 @@ $ java -jar avro-tools-1.11.0.jar fromjson --codec snappy --schema-file twitter.
 The same command works on both uncompressed and compressed data.
 
 ```shell
-$ java -jar avro-tools-1.11.0.jar tojson twitter.avro > twitter.json
-$ java -jar avro-tools-1.11.0.jar tojson twitter.snappy.avro > twitter.json
+$ java -jar avro-tools-1.11.3.jar tojson twitter.avro > twitter.json
+$ java -jar avro-tools-1.11.3.jar tojson twitter.snappy.avro > twitter.json
 ```
 
 Example:
 
 ```shell
-$ java -jar avro-tools-1.11.0.jar tojson twitter.avro
+$ java -jar avro-tools-1.11.3.jar tojson twitter.avro
 ```
 
 returns
@@ -92,15 +90,15 @@ returns
 {"username":"BlizzardCS","tweet":"Works as intended.  Terran is IMBA.","timestamp": 1366154481 }
 ```
 
-You can also pretty-print the JSON output with the  `-pretty` parameter:
+You can also pretty-print the JSON output with the `-pretty` parameter:
 
-    $ java -jar avro-tools-1.11.0.jar tojson -pretty twitter.avro > twitter.pretty.json
-    $ java -jar avro-tools-1.11.0.jar tojson -pretty twitter.snappy.avro > twitter.pretty.json
+    $ java -jar avro-tools-1.11.3.jar tojson -pretty twitter.avro > twitter.pretty.json
+    $ java -jar avro-tools-1.11.3.jar tojson -pretty twitter.snappy.avro > twitter.pretty.json
 
 Example:
 
 ```shell
-$ java -jar avro-tools-1.11.0.jar tojson -pretty twitter.avro
+$ java -jar avro-tools-1.11.3.jar tojson -pretty twitter.avro
 ```
 
 returns
@@ -118,7 +116,6 @@ returns
 }
 ```
 
-
 <a name="retrieve-avro-schema"></a>
 
 # Retrieve Avro schema from binary Avro
@@ -126,14 +123,14 @@ returns
 The same command works on both uncompressed and compressed data.
 
 ```shell
-$ java -jar avro-tools-1.11.0.jar getschema twitter.avro > twitter.avsc
-$ java -jar avro-tools-1.11.0.jar getschema twitter.snappy.avro > twitter.avsc
+$ java -jar avro-tools-1.11.3.jar getschema twitter.avro > twitter.avsc
+$ java -jar avro-tools-1.11.3.jar getschema twitter.snappy.avro > twitter.avsc
 ```
 
 Example:
 
 ```shell
-$ java -jar avro-tools-1.11.0.jar getschema twitter.avro
+$ java -jar avro-tools-1.11.3.jar getschema twitter.avro
 {
   "type" : "record",
   "name" : "twitter_schema",
